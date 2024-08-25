@@ -1,0 +1,12 @@
+.link-button-3d {
+  border: 1px solid var(--color-primary);
+  box-shadow: 0px 3px var(--color-primary);
+  padding: 15px 30px;
+  text-align: center;
+
+  &--active {
+    box-shadow: none;
+    position: relative;
+    top: 3px;
+  }
+}

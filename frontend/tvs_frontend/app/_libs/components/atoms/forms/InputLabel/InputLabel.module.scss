@@ -1,0 +1,16 @@
+.input-label {
+  color: var(--color-primary);
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  left: 2rem;
+  transform: translate(0, -50%);
+
+  &--active {
+    background-color: var(--color-white);
+    color: var(--color-primary);
+    padding: 0 1rem;
+    top: 0;
+    left: 1rem;
+  }
+}
