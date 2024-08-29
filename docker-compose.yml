@@ -41,5 +41,16 @@ services:
       - 2222:80
     depends_on:
       - backend
+  pgadmin:
+    image: dpage/pgadmin4
+    expose:
+      - 6060
+    ports:
+      - 6060:80
+    environment:
+      PGADMIN_DEFAULT_EMAIL: yumu31pj@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: 5kvus2zz6avg
+    depends_on:
+      - db
 volumes:
   postgres_data:
