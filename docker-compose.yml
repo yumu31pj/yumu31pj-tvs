@@ -2,16 +2,18 @@ version: '3'
 services:
   frontend:
     build:
-      context: frontend
+      context: ./frontend/tvs_frontend
     tty: true
     volumes:
-      - ./frontend:/frontend
+      - ./frontend/tvs_frontend:/frontend/tvs_frontend
     ports:
       - 3000:3000
     env_file:
       - ./.env.dev
     environment:
       - WATCHPACK_POLLING=true
+    working_dir: /frontend/tvs_frontend
+    command: npm run dev
   backend:
     build:
       context: backend

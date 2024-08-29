@@ -6,4 +6,4 @@ class NewsViewSet(viewsets.ModelViewSet):
   queryset = News.objects.all()
   serializer_class = NewsSerializer
   filter_backends = (filters.SearchFilter,)
-  search_fields = ('news_id', 'news_title', 'article_body')
+  search_fields = ('news_id', 'news_title', 'news_body')
