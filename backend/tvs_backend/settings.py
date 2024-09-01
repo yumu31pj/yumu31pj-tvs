@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'tvs_backend.apps.news',
-    'tvs_backend.apps.accounts',
+    'tvs_backend.apps.users',
 ]
 
 MIDDLEWARE = [
@@ -91,6 +91,7 @@ DATABASES = {
     }
 }
 
+AUTH_USER_MODEL = "users.CustomUser"
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
