@@ -1,0 +1,3 @@
+[submodule "frontend/tvs_frontend/_31pr-bootstrap"]
+	path = frontend/tvs_frontend/_31pr-bootstrap
+	url = git@github.com:yumu31pj/yumu31pj-react-bootstrap.git

@@ -1,5 +1,6 @@
 'use client';
 import useFetchNewsAll from "@/_libs/hooks/_projects/useFetchNewsAll.hooks";
+import { NewsFrom } from "_project/components/NewsForm/news-form";
 import { FormEventHandler } from "react";
 import usePostNews from "./_libs/hooks/_projects/usePostNews";
 
@@ -10,9 +11,15 @@ const Home = () => {
     <>
       {response ? (
         <>
-          {JSON.stringify(response)}
+          {response.map((item:any, key:number) => (
+            <div key={key} style={{display: "flex", gap: "15px"}}>
+              <h3>{item.news_title}</h3>
+              <p>{item.news_body}</p>
+            </div>
+          ))}
         </>
       ) : null}
+      <br />
       <NewsForm />
     </>
   );
@@ -40,13 +47,16 @@ const NewsForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input type="text" name="title" style={{border: "1px solid #333", display: "block"}} defaultValue="" />
-      <textarea name="body" style={{border: "1px solid #333", display: "block"}} defaultValue="" />
-      <button type="submit" style={{border: "1px solid #333"}}>
-        submit
-      </button>
-    </form>
+    // <>
+    //   <form onSubmit={handleSubmit}>
+    //     <input type="text" name="title" style={{border: "1px solid #333", display: "block"}} defaultValue="" />
+    //     <textarea name="body" style={{border: "1px solid #333", display: "block"}} defaultValue="" />
+    //     <button type="submit" style={{border: "1px solid #333"}}>
+    //       submit
+    //     </button>
+    //   </form>
+    // </>
+    <NewsFrom />
   )
 }
 
