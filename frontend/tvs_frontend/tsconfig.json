@@ -21,7 +21,7 @@
     "paths": {
       "@/*": ["./app/*"],
       "~/*": ["./app/*"],
-      "@globals": ["app/_libs/scss/globals"]
+      "@globals": ["./_31pr-bootstrap/src/scss/globals"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

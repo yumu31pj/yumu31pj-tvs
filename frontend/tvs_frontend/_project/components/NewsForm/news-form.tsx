@@ -1,10 +1,10 @@
-import usePostNews from "@/_libs/hooks/_projects/usePostNews";
 import { InputText, TextArea } from "_31pr-bootstrap/src/components/ui/form";
 import { FieldWrapper } from "_31pr-bootstrap/src/components/ui/form/field-wrapper";
 import { SubmitButton } from "_31pr-bootstrap/src/components/ui/form/submit-button";
 import useSubmitForm from "_31pr-bootstrap/src/hooks/useSubmitForm";
+import usePostNews from "_project/hooks/usePostNews";
 
-const NewsFrom = () => {
+const NewsForm = () => {
   const { postNews, isPosting, hasPostError, postErrorMessage } = usePostNews();
 
   // Pass the specific API function and related state to useSubmitForm
@@ -41,4 +41,4 @@ const NewsFrom = () => {
   )
 }
 
-export { NewsFrom };
+export default NewsForm;

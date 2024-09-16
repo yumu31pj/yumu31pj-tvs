@@ -1,9 +1,6 @@
 
 import type { Metadata } from "next";
-import BodyWrapper from "./_libs/components/layouts/bodies/BodyWrapper/BodyWrapper";
-import HeaderBasic from "./_libs/components/organisms/headers/HeaderBasic/HeaderBasic";
-import { HeaderContexts } from "./_libs/contexts/HeaderContexts";
-import "./_libs/scss/styles.scss";
+import "../_31pr-bootstrap/src/scss/styles.scss";
 
 export const metadata: Metadata = {
   title: "TVS",
@@ -17,16 +14,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <BodyWrapper>
-        <HeaderBasic
-          logoImageItem={
-            HeaderContexts.logoImageItem
-          }
-        />
+      <body>
+      <div>
         <main>
           {children}
         </main>
-      </BodyWrapper>
+      </div>
+      </body>
     </html>
   );
 }
