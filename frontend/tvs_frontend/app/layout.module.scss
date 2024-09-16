@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+  margin-top: 50px;
+  position: relative;
+  
+  &__main {
+    width: calc(100% - 150px); // 100% - container__nav width
+    & main {
+      width: 100%;
+      min-height: calc(100vh - 50px - 35px); // 100vh - header height - footer height
+    }
+  }
+  &__nav {
+    background-color: var(--color-primary);
+    border-top: 1px solid var(--color-white);
+    color: var(--color-white);
+    position: fixed;
+    top: 50px;
+    left: 0;
+    width: 150px;
+    height: calc(100% - 50px);
+  }
+}

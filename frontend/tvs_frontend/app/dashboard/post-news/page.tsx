@@ -1,6 +1,6 @@
 'use client';
 
-import NewsForm from "_project/components/NewsForm/news-form";
+import NewsForm from "_project/features/NewsForm/news-form";
 import usePostNews from "_project/hooks/usePostNews";
 import { FormEventHandler } from "react";
 
