@@ -2,6 +2,7 @@ import Footer from "_project/features/Footer/footer";
 import Header from "_project/features/Header/header";
 import type { Metadata } from "next";
 import "../_31pr-bootstrap/src/scss/styles.scss";
+import "../_project/scss/styles.scss";
 import styles from "./layout.module.scss";
 
 export const metadata: Metadata = {

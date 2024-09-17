@@ -2,14 +2,15 @@
   display: flex;
     justify-content: flex-start;
     flex-direction: row-reverse;
-  margin-top: 50px;
+  // margin-top: 50px;
+  margin-top: var(--p-header-height);
   position: relative;
   
   &__main {
-    width: calc(100% - 150px); // 100% - container__nav width
+    width: calc(100% - var(--p-header-height) - var(--p-footer-height)); // 100% - container__nav width
     & main {
       width: 100%;
-      min-height: calc(100vh - 50px - 35px); // 100vh - header height - footer height
+      min-height: calc(100vh - var(--p-header-height) - var(--p-footer-height)); // 100vh - header height - footer height
     }
   }
   &__nav {
@@ -17,7 +18,7 @@
     border-top: 1px solid var(--color-white);
     color: var(--color-white);
     position: fixed;
-    top: 50px;
+    top: var(--p-header-height);
     left: 0;
     width: 150px;
     height: calc(100% - 50px);
