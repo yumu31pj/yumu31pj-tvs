@@ -3,3 +3,6 @@ uvicorn==0.22.0    # ASGI server
 sqlalchemy==2.0.20  # ORM
 asyncpg==0.29.0    # Asynchronous driver for PostgreSQL
 psycopg2==2.9.7    # Library for connecting to PostgreSQL (optional for synchronous processing)
+strawberry-graphql==0.243.1
+pydantic-settings==2.5.2
+psycopg2-binary==2.9.9

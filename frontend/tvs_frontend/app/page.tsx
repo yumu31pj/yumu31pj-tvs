@@ -1,34 +1,24 @@
 'use client';
-import axios from "axios";
-import { useEffect, useState } from "react";
-
-const backendUrl = process.env.NEXT_PUBLIC_BE_BACKEND || ""
+import useFetchDemo from "_project/hooks/useFetchDemo";
 
 const Home = () => {
 
-  const [response, setResponse] = useState();
-
-  const getData = async () => {
-    try {
-      console.log(backendUrl);
-      const response = await axios.get(`${backendUrl}/v1`);
-      
-      console.log("status code: ", response.status); // ステータスコードの取得
-      console.log("response: ", response.data); // レスポンスデータの取得
-      setResponse(response.data)
-    } catch (error) {
-      console.log("error: ", error);
-    }
-  };
-
-  useEffect(() => {
-    getData();
-  },[])
+  const {isLoading, response, hasError, errorMessage} = useFetchDemo();
 
   return (
-    <>
-      {JSON.stringify(response)}
-    </>
+    <div>
+      {response ? (
+        <div>
+          {Object.entries(response).map(([key, value]) => (
+            <p key={key}>
+              {key}: {String(value)}
+            </p>
+          ))}
+        </div>
+      ) : (
+        <p>Loading...</p>
+      )}
+    </div>
   );
 }
 
