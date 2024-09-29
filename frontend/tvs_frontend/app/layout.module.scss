@@ -7,7 +7,7 @@
   position: relative;
   
   &__main {
-    width: calc(100% - var(--p-header-height) - var(--p-footer-height)); // 100% - container__nav width
+    width: calc(100% - var(--p-container-nav-width)); // 100% - container__nav width
     & main {
       width: 100%;
       min-height: calc(100vh - var(--p-header-height) - var(--p-footer-height)); // 100vh - header height - footer height
@@ -20,7 +20,7 @@
     position: fixed;
     top: var(--p-header-height);
     left: 0;
-    width: 150px;
+    width: var(--p-container-nav-width);
     height: calc(100% - 50px);
   }
 }

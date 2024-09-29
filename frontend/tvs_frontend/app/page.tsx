@@ -1,24 +1,33 @@
 'use client';
-import { getFormatedDateString } from "_31pr-bootstrap/src/utils/getFormatedDateString";
-import useFetchNewsAll from "_project/hooks/useFetchNewsAll.hooks";
+import axios from "axios";
+import { useEffect, useState } from "react";
+
+const backendUrl = process.env.NEXT_PUBLIC_BE_BACKEND || ""
 
 const Home = () => {
-  const { isLoading, response, hasError, errorMessage } = useFetchNewsAll();
+
+  const [response, setResponse] = useState();
+
+  const getData = async () => {
+    try {
+      console.log(backendUrl);
+      const response = await axios.get(`${backendUrl}/v1`);
+      
+      console.log("status code: ", response.status); // ステータスコードの取得
+      console.log("response: ", response.data); // レスポンスデータの取得
+      setResponse(response.data)
+    } catch (error) {
+      console.log("error: ", error);
+    }
+  };
+
+  useEffect(() => {
+    getData();
+  },[])
 
   return (
     <>
-      {response ? (
-        <>
-          {response.map((item:any, key:number) => (
-            <div key={key} style={{display: "flex", gap: "15px"}}>
-              <p>{item.news_id}</p>
-              <h3>{item.news_title}</h3>
-              <p>{item.news_body}</p>
-              <p>{getFormatedDateString(item.updated_at)}</p>
-            </div>
-          ))}
-        </>
-      ) : null}
+      {JSON.stringify(response)}
     </>
   );
 }

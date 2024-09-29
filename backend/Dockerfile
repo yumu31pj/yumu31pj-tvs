@@ -1,6 +1,17 @@
+# Use the latest version of Python (as of writing, 3.12.5)
 FROM python:3.12.5
-ENV PYTHONONUNBUFFERED 1
-RUN mkdir /backend
+
+# Set to not buffer standard output
+ENV PYTHONUNBUFFERED=1
+
+# Set the working directory
 WORKDIR /backend
+
+# Copy requirements.txt into the container
 ADD requirements.txt /backend/
-RUN pip install -r requirements.txt
+
+# Install libraries for FastAPI and PostgreSQL
+RUN pip install --upgrade pip && pip install -r requirements.txt
+
+# Copy the application into the container
+ADD . /backend/

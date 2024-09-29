@@ -2,22 +2,24 @@ version: '3'
 services:
   frontend:
     build:
-      context: ./frontend/tvs_frontend
+      context: ./frontend
+      dockerfile: Dockerfile
     tty: true
     volumes:
       - ./frontend/tvs_frontend:/frontend/tvs_frontend
     ports:
-      - 3000:3000
+      - 2222:2222
     env_file:
       - ./.env.dev
     environment:
       - WATCHPACK_POLLING=true
     working_dir: /frontend/tvs_frontend
     command: npm run dev
+
   backend:
     build:
-      context: backend
-    command: gunicorn tvs_backend.wsgi:application --bind 0.0.0.0:8000
+      context: ./backend
+    command: uvicorn main:app --host 0.0.0.0 --port 8000
     tty: true
     volumes:
       - ./backend:/backend
@@ -29,18 +31,28 @@ services:
       - db
     env_file:
       - ./.env.dev
+    environment:
+      - DATABASE_URL=postgresql+asyncpg://postgres:POSTGRES_DB@db:5432/tvs
+
   db:
     image: postgres
     env_file:
       - ./.env.dev
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: tvs
     volumes:
       - postgres_data:/var/lib/postgresql/data
+
   nginx:
     build: ./nginx
     ports:
-      - 2222:80
+      - 80:80
     depends_on:
+      - frontend
       - backend
+
   pgadmin:
     image: dpage/pgadmin4
     expose:
@@ -52,5 +64,6 @@ services:
       PGADMIN_DEFAULT_PASSWORD: 5kvus2zz6avg
     depends_on:
       - db
+
 volumes:
   postgres_data:
