@@ -8,7 +8,7 @@ ENV PYTHONUNBUFFERED=1
 WORKDIR /backend
 
 # Copy requirements.txt into the container
-ADD requirements.txt /backend/
+ADD requirements.txt .
 
 # Install libraries for FastAPI and PostgreSQL
 RUN pip install --upgrade pip && pip install -r requirements.txt

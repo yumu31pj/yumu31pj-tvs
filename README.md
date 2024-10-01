@@ -7,3 +7,8 @@ docker compose down
 ```
 docker compose up -d
 ``` 
+
+# Enter to the backend containter
+```
+docker-compose exec backend /bin/sh
+```
