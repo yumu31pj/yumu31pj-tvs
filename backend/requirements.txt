@@ -6,3 +6,4 @@ psycopg2==2.9.7    # Library for connecting to PostgreSQL (optional for synchron
 strawberry-graphql==0.243.1
 pydantic-settings==2.5.2
 psycopg2-binary==2.9.9
+alembic==1.13.3
