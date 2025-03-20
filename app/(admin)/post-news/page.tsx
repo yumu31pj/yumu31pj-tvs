@@ -5,6 +5,7 @@ import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 
 import { NewsRegisterSchema } from '@/schemas/news';
+import { createNews } from '@/utils/backend/news.queries';
 
 const PagePostNews = () => {
   const {
@@ -19,8 +20,9 @@ const PagePostNews = () => {
     },
   })
 
-  const onSubmitHandler = (values: z.infer<typeof NewsRegisterSchema>) => {
-    console.log(values);
+  const onSubmitHandler = async (values: z.infer<typeof NewsRegisterSchema>) => {
+    const response = await createNews(values.title, values.content);
+    console.log(JSON.stringify(response));
   }
 
   return (
