@@ -1,0 +1,39 @@
+@use "globals" as *;
+
+.post-list {
+  & li {
+    border-top: 1px solid #ccc;
+
+    &:last-child {
+      border-bottom: 1px solid #ccc;
+    }
+  }
+}
+
+.post {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: get_px($space--xs);
+
+  @include media("sp") {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  &:hover {
+    color: color(--c-primary);
+  }
+
+  &__date {
+    font-size: 1.4rem;
+  }
+
+  &__category {
+    font-size: 1.4rem;
+  }
+
+  &__title {}
+
+}

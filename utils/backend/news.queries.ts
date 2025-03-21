@@ -1,5 +1,11 @@
-export const fetchNews = async () => {
-  const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/news`, {
+export const fetchNews = async (limit?: number) => {
+  let url = `${process.env.NEXT_PUBLIC_SITE_URL}/api/news`;
+  // limit=取得件数が指定されたら、URLにクエリパラメータとして追加
+  if (limit) {
+    url += `?limit=${limit}`;
+  }
+
+  const response = await fetch(url, {
     cache: "no-store",
   });
   if (!response.ok) {

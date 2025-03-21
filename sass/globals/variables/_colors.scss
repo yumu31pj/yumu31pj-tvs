@@ -1,0 +1,25 @@
+@use 'sass:color';
+
+// palettes
+// ----------------------------------------------------------------------------
+$black: #061a36;
+$brand: #2359A1;
+$soft-red: #CD5C5C;
+
+$theme-colors: (
+  primary: $brand,
+  font-primary: $black,
+  accent: $soft-red,
+);
+
+// CSS variables生成用のmixin
+@mixin export-theme-colors() {
+  @each $key, $color in $theme-colors {
+    --c-#{"#{$key}"}: #{color.channel($color, "red")}, #{color.channel($color, "green")}, #{color.channel($color, "blue")}; // スペースを削除
+  }
+}
+
+// カスタム関数で色を扱う
+@function color($color_name, $alpha: 1) {
+  @return rgba(var(#{$color_name}), $alpha);
+}
