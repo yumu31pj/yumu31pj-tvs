@@ -1,0 +1,13 @@
+@use "globals" as *;
+
+.header-wrapper {
+  background: color(--c-primary);
+  color: #fff;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: $header-height-sp;
+  z-index: 100;
+}

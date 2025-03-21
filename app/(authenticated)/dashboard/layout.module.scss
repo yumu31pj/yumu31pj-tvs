@@ -1,0 +1,30 @@
+@use "globals" as *;
+
+.auth-layout {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: $header-height-sp;
+  min-height: calc(100vh - $header-height-sp);
+  position: relative;
+  
+  &__sidebar {
+    display: none;
+    
+    
+    @include media('tb') {
+      display: block;
+      position: fixed;
+      top: $header-height-sp;
+      left: 0;
+      width: $sidebar-width;
+      height: 100%;
+    }
+  }
+  
+  &__content {
+    width: 100%;
+    @include media('tb') {
+      width: calc(100% - $sidebar-width);
+    }
+  }
+}

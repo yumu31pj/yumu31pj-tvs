@@ -1,0 +1,8 @@
+@use "globals" as *;
+
+.sidebar-wrapper {
+  background-color: color(--c-primary);
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  height: 100%;
+}
