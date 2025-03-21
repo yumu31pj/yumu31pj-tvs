@@ -27,7 +27,7 @@ const PagePostNews = () => {
 
   return (
     <section>
-      <h2>NewPost</h2>
+      <h2>News Post</h2>
       <form onSubmit={handleSubmit(onSubmitHandler)}>
         <div>
           <label htmlFor="title">タイトル</label>
