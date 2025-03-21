@@ -1,11 +1,10 @@
-import { HomeNews } from "@/components/pages/home/HomeNews/HomeNews";
 
-const PageHome = async () => {
+const PageTop = async () => {
   return (
     <>
-      <HomeNews />
+      <p>ログインしてください</p>
     </>
   );
 }
 
-export default PageHome;
+export default PageTop;
