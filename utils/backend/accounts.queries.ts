@@ -44,3 +44,20 @@ export const createAccount = async (values: z.infer<typeof AccountsRegisterSchem
   }
   return response.json();
 }
+
+export const checkEmailExists = async (email: string) => {
+  try {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_SITE_URL}/api/accounts/check-email`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ email }),
+  });
+  const { exists } = await response.json();
+  return exists;
+  } catch (error) {
+    console.error('メールアドレスチェックに失敗しました', error);
+    return false;
+  }
+} 
